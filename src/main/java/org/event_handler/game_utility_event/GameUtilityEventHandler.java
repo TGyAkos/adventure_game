@@ -11,11 +11,12 @@ public class GameUtilityEventHandler {
 
         gameUtilityEventInitiator.addListeners(gameUtilityEventResponder);
 
-        // Refactor ↓
+        UserInterfaceEventHandler userInterfaceEventHandler = new UserInterfaceEventHandler();
         DamageEventHandler damageEventHandler = new DamageEventHandler();
 
-        UserInterfaceEventHandler userInterfaceEventHandler = new UserInterfaceEventHandler(damageEventHandler.getDamageEventInitiator());
+        userInterfaceEventHandler.setDamageEventInitiator(damageEventHandler.getDamageEventInitiator());
+        damageEventHandler.setUserInterfaceEventInitiator(userInterfaceEventHandler.getUserInterfaceEventInitiator());
 
-
+        userInterfaceEventHandler.startUserInterfaceEventHandler();
     }
 }
