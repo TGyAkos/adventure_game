@@ -12,11 +12,6 @@ public class UserInterfaceDisplay {
     private DefaultAttributes playerClass;
     private Goblin enemyClass;
 
-    public UserInterfaceDisplay(UserInterfaceEventInitiator userInterfaceEventInitiator, DamageEventInitiator damageEventInitiator) {
-        this.userInterfaceEventInitiator = userInterfaceEventInitiator;
-        this.damageEventInitiator = damageEventInitiator;
-    }
-
     public void printOptions() {
         System.out.println("Choose your class:");
         System.out.println("1. - Magic");
@@ -41,7 +36,7 @@ public class UserInterfaceDisplay {
     }
 
     public void getPlayerClass() {
-        userInterfaceEventInitiator.getPlayerClass(this ,currentUserInput);
+        userInterfaceEventInitiator.getPlayerClass(this, currentUserInput);
     }
 
     public void setUserInputState(String userInput) {
@@ -55,9 +50,13 @@ public class UserInterfaceDisplay {
 
     public void setEnemy(UserInterfaceDisplay this, Goblin enemyClass) {
         this.enemyClass = enemyClass;
-        // Don't do this find a better method
-        printCombatOptions();
     }
 
+    public void setUserInterfaceEventInitiator(UserInterfaceEventInitiator userInterfaceEventInitiator) {
+        this.userInterfaceEventInitiator = userInterfaceEventInitiator;
+    }
 
+    public void setDamageEventInitiator(DamageEventInitiator damageEventInitiator) {
+        this.damageEventInitiator = damageEventInitiator;
+    }
 }

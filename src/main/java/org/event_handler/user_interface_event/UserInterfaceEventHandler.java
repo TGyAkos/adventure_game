@@ -6,26 +6,34 @@ import org.user_interface.UserInterfaceDisplay;
 
 public class UserInterfaceEventHandler {
     private final UserInterfaceEventInitiator userInterfaceEventInitiator;
-    private final DamageEventInitiator damageEventInitiator;
+    private DamageEventInitiator damageEventInitiator;
 
-    // Refactor ↓
-    public UserInterfaceEventHandler(DamageEventInitiator damageEventInitiator) {
-        this.damageEventInitiator = damageEventInitiator;
-
+    public UserInterfaceEventHandler() {
         UserInterfaceEventInitiator userInterfaceEventInitiator = new UserInterfaceEventInitiator();
-        UserInterfaceDisplay userInterfaceDisplay = new UserInterfaceDisplay(userInterfaceEventInitiator, damageEventInitiator);
         UserInputHandling userInputHandling = new UserInputHandling();
-
-        userInterfaceEventInitiator.addListeners(userInputHandling);
 
         this.userInterfaceEventInitiator = userInterfaceEventInitiator;
 
-        userInterfaceDisplay.printOptions();
-        userInterfaceDisplay.getPlayerClass();
+        this.userInterfaceEventInitiator.addListeners(userInputHandling);
     }
 
-    // Refactor ↓
+    public void startUserInterfaceEventHandler() {
+        UserInterfaceDisplay userInterfaceDisplay = new UserInterfaceDisplay();
+
+        userInterfaceDisplay.setUserInterfaceEventInitiator(this.userInterfaceEventInitiator);
+        userInterfaceDisplay.setDamageEventInitiator(this.damageEventInitiator);
+
+        userInterfaceDisplay.printOptions();
+        userInterfaceDisplay.getPlayerClass();
+        // Untested code ↓
+        userInterfaceDisplay.printCombatOptions();
+    }
+
     public UserInterfaceEventInitiator getUserInterfaceEventInitiator() {
         return userInterfaceEventInitiator;
+    }
+
+    public void setDamageEventInitiator(DamageEventInitiator damageEventInitiator) {
+        this.damageEventInitiator = damageEventInitiator;
     }
 }
