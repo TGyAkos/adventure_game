@@ -4,7 +4,8 @@ import org.event_handler.damage_event.DamageEventHandler;
 import org.event_handler.user_interface_event.UserInterfaceEventHandler;
 
 public class GameUtilityEventHandler {
-    // No need for this package, Main() would suffice
+    private final UserInterfaceEventHandler userInterfaceEventHandler;
+
     public GameUtilityEventHandler() {
         GameUtilityEventInitiator gameUtilityEventInitiator = new GameUtilityEventInitiator();
         GameUtilityEventResponder gameUtilityEventResponder = new GameUtilityEventResponder();
@@ -17,6 +18,10 @@ public class GameUtilityEventHandler {
         userInterfaceEventHandler.setDamageEventInitiator(damageEventHandler.getDamageEventInitiator());
         damageEventHandler.setUserInterfaceEventInitiator(userInterfaceEventHandler.getUserInterfaceEventInitiator());
 
-        userInterfaceEventHandler.startUserInterfaceEventHandler();
+        this.userInterfaceEventHandler = userInterfaceEventHandler;
+    }
+
+    public UserInterfaceEventHandler getUserInterfaceEventHandler() {
+        return userInterfaceEventHandler;
     }
 }

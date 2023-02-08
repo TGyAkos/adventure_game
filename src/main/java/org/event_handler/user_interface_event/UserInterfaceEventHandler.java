@@ -8,6 +8,8 @@ public class UserInterfaceEventHandler {
     private final UserInterfaceEventInitiator userInterfaceEventInitiator;
     private DamageEventInitiator damageEventInitiator;
 
+    private UserInterfaceDisplay userInterfaceDisplay;
+
     public UserInterfaceEventHandler() {
         UserInterfaceEventInitiator userInterfaceEventInitiator = new UserInterfaceEventInitiator();
         UserInputHandling userInputHandling = new UserInputHandling();
@@ -18,15 +20,24 @@ public class UserInterfaceEventHandler {
     }
 
     public void startUserInterfaceEventHandler() {
-        UserInterfaceDisplay userInterfaceDisplay = new UserInterfaceDisplay();
+        this.userInterfaceDisplay = new UserInterfaceDisplay();
 
         userInterfaceDisplay.setUserInterfaceEventInitiator(this.userInterfaceEventInitiator);
         userInterfaceDisplay.setDamageEventInitiator(this.damageEventInitiator);
+    }
 
+    public void startCharacterSelection() {
         userInterfaceDisplay.printOptions();
         userInterfaceDisplay.getPlayerClass();
-        // Untested code ↓
+    }
+
+    public void SpawnEnemy() {
+        userInterfaceDisplay.getEnemyClass();
+    }
+
+    public void startMainGameplayLoop() {
         userInterfaceDisplay.printCombatOptions();
+        userInterfaceDisplay.getPlayerCombatAction();
     }
 
     public UserInterfaceEventInitiator getUserInterfaceEventInitiator() {

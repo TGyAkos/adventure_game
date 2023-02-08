@@ -1,5 +1,6 @@
 package org.event_handler.damage_event;
 
+import org.enemies.Goblin;
 import org.player_classes.DefaultAttributes;
 import org.user_interface.UserInterfaceDisplay;
 
@@ -22,6 +23,12 @@ public class DamageEventInitiator {
     public void calculateAndSpawnEnemy(UserInterfaceDisplay userInterfaceDisplay, DefaultAttributes playerClass) {
         for (DamageEventListener damageEventListener : listeners) {
             damageEventListener.calculateAndSpawnEnemy(userInterfaceDisplay, playerClass);
+        }
+    }
+
+    public void getFightResultData(UserInterfaceDisplay userInterfaceDisplay, DefaultAttributes playerClass, Goblin enemyClass) {
+        for (DamageEventListener damageEventListener : listeners) {
+            damageEventListener.getFightResultData(userInterfaceDisplay, playerClass, enemyClass);
         }
     }
 }

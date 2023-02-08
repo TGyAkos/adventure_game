@@ -1,26 +1,26 @@
 package org.player_classes;
 
 public class Magic extends DefaultAttributes {
-    private int damage = 50;
-    private int resistance = 10;
+    private double damage = 50;
+    private double resistance = 10;
 
     @Override
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
     @Override
-    public int getResistance() {
+    public double getResistance() {
         return resistance;
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
     }
 
     @Override
-    public void setResistance(int resistance) {
+    public void setResistance(double resistance) {
         this.resistance = resistance;
     }
 }
