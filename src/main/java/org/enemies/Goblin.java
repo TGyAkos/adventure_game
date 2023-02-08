@@ -41,4 +41,16 @@ public class Goblin {
     public double getResistance() {
         return resistance;
     }
+
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
+    public void setDamage(double damage) {
+        this.damage = damage;
+    }
+
+    public void setResistance(double resistance) {
+        this.resistance = resistance;
+    }
 }

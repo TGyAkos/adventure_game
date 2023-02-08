@@ -20,7 +20,6 @@ public class UserInterfaceDisplay {
         getUserInput();
     }
 
-    // Hasn't been tested, get a better method of acquiring user input ↓
     public void printCombatOptions() {
         System.out.println("Choose your action:");
         System.out.println("1. - Fight");
@@ -30,13 +29,57 @@ public class UserInterfaceDisplay {
         getUserInput();
     }
 
+    public void printFightResult() {
+        System.out.printf("Your health: %f%n", playerClass.getHealth());
+        System.out.printf("Enemy Health: %f%n", enemyClass.getHealth());
+    }
+
+    public void printPotionOption() {
+
+    }
+
+    public void printMyStats() {
+        System.out.printf("Health: %f%n", playerClass.getHealth());
+        System.out.printf("Damage: %f%n", playerClass.getDamage());
+        System.out.printf("Resistance: %f%n", playerClass.getResistance());
+        System.out.printf("Weak Potion: %f%n", playerClass.getWeakPotion());
+        System.out.printf("Common Potion: %f%n", playerClass.getCommonPotion());
+        System.out.printf("Strong Potion: %f%n", playerClass.getStrongPotion());
+    }
+
+    public void printEnemyStats() {
+        System.out.printf("Enemy Health: %f%n", enemyClass.getHealth());
+        System.out.printf("Enemy Damage: %f%n", enemyClass.getDamage());
+        System.out.printf("Enemy Resistance: %f%n", enemyClass.getResistance());
+    }
+
     public void getUserInput() {
         System.out.println("Enter the number:");
         userInterfaceEventInitiator.getUserInput(this);
     }
 
+    public void getPlayerCombatAction() {
+        if ("1".equals(currentUserInput)) {
+            damageEventInitiator.getFightResultData(this, playerClass, enemyClass);
+        }
+        userInterfaceEventInitiator.getPlayerCombatAction(this, currentUserInput);
+    }
+
     public void getPlayerClass() {
         userInterfaceEventInitiator.getPlayerClass(this, currentUserInput);
+    }
+
+    public void getEnemyClass() {
+        damageEventInitiator.calculateAndSpawnEnemy(this, playerClass);
+    }
+
+    public void setPlayerCombatAction(String userInput) {
+        switch (userInput) {
+            case "1" -> printFightResult();
+            case "2" -> printPotionOption();
+            case "3" -> printMyStats();
+            case "4" -> printEnemyStats();
+        }
     }
 
     public void setUserInputState(String userInput) {
@@ -45,10 +88,9 @@ public class UserInterfaceDisplay {
 
     public void setPlayerClass(DefaultAttributes playerClass) {
         this.playerClass = playerClass;
-        damageEventInitiator.calculateAndSpawnEnemy(this, playerClass);
     }
 
-    public void setEnemy(UserInterfaceDisplay this, Goblin enemyClass) {
+    public void setEnemyClass(UserInterfaceDisplay this, Goblin enemyClass) {
         this.enemyClass = enemyClass;
     }
 
@@ -59,4 +101,5 @@ public class UserInterfaceDisplay {
     public void setDamageEventInitiator(DamageEventInitiator damageEventInitiator) {
         this.damageEventInitiator = damageEventInitiator;
     }
+
 }

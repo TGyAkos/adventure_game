@@ -1,26 +1,26 @@
 package org.player_classes;
 
 public class Melee extends DefaultAttributes {
-    private int damage = 15;
-    private int resistance = 40;
+    private double damage = 15;
+    private double resistance = 40;
 
     @Override
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
     @Override
-    public int getResistance() {
+    public double getResistance() {
         return resistance;
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
     }
 
     @Override
-    public void setResistance(int resistance) {
+    public void setResistance(double resistance) {
         this.resistance = resistance;
     }
 }

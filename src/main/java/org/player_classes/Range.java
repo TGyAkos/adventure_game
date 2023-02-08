@@ -1,26 +1,26 @@
 package org.player_classes;
 
 public class Range extends DefaultAttributes {
-    private int health = 20;
-    private int damage = 100;
+    private double health = 20;
+    private double damage = 100;
 
     @Override
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 
     @Override
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
     @Override
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
     }
 }

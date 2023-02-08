@@ -14,12 +14,10 @@ public class UserInputHandling implements UserInterfaceEventListener {
     public void getUserInput(UserInterfaceDisplay userInterfaceDisplay) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
             userInterfaceDisplay.setUserInputState(reader.readLine());
         }
         catch (IOException e) {
-            //Fix IOException
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -31,4 +29,10 @@ public class UserInputHandling implements UserInterfaceEventListener {
             case "3" -> userInterfaceDisplay.setPlayerClass(new Range());
         }
     }
+
+    @Override
+    public void getPlayerCombatAction(UserInterfaceDisplay userInterfaceDisplay, String userInput){
+            userInterfaceDisplay.setPlayerCombatAction(userInput);
+    }
+
 }

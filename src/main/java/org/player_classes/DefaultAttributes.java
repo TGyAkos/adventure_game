@@ -1,67 +1,75 @@
 package org.player_classes;
 
 public abstract class DefaultAttributes {
-    private int health = 100;
-    private int damage = 25;
-    private int resistance = 20;
-    private int experience = 0;
-    private int weakPotion = 2;
-    private int commonPotion = 1;
-    private int strongPotion = 0;
+    private int numberOfEnemyKilled = 0;
+    private double health = 100;
+    private double damage = 25;
+    private double resistance = 20;
+    private double experience = 0;
+    private double weakPotion = 2;
+    private double commonPotion = 1;
+    private double strongPotion = 0;
 
-    public int getHealth() {
+    public int getNumberOfEnemyKilled() {
+        return numberOfEnemyKilled;
+    }
+
+    public double getHealth() {
         return health;
     }
 
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
-    public int getResistance() {
+    public double getResistance() {
         return resistance;
     }
 
-    public int getExperience() {
+    public double getExperience() {
         return experience;
     }
 
-    public int getWeakPotion() {
+    public double getWeakPotion() {
         return weakPotion;
     }
 
-    public int getCommonPotion() {
+    public double getCommonPotion() {
         return commonPotion;
     }
 
-    public int getStrongPotion() {
+    public double getStrongPotion() {
         return strongPotion;
     }
 
-    public void setWeakPotion(int weakPotion) {
-        this.weakPotion = weakPotion;
+    public void setNumberOfEnemyKilled(int numberOfEnemyKilled) {
+        this.numberOfEnemyKilled = numberOfEnemyKilled;
     }
 
-    public void setCommonPotion(int commonPotion) {
-        this.commonPotion = commonPotion;
-    }
-
-    public void setStrongPotion(int strongPotion) {
-        this.strongPotion = strongPotion;
-    }
-
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
     }
 
-    public void setResistance(int resistance) {
+    public void setResistance(double resistance) {
         this.resistance = resistance;
     }
 
-    public void setExperience(int experience) {
+    public void setExperience(double experience) {
         this.experience = experience;
+    }
+    public void setWeakPotion(double weakPotion) {
+        this.weakPotion = weakPotion;
+    }
+
+    public void setCommonPotion(double commonPotion) {
+        this.commonPotion = commonPotion;
+    }
+
+    public void setStrongPotion(double strongPotion) {
+        this.strongPotion = strongPotion;
     }
 }

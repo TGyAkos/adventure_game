@@ -24,5 +24,10 @@ public class UserInterfaceEventInitiator {
         }
     }
 
+    public void getPlayerCombatAction(UserInterfaceDisplay userInterfaceDisplay, String userInput) {
+        for (UserInterfaceEventListener userInterfaceEventListener : listeners) {
+            userInterfaceEventListener.getPlayerCombatAction(userInterfaceDisplay, userInput);
+        }
+    }
 
 }

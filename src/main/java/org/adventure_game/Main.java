@@ -2,6 +2,7 @@ package org.adventure_game;
 
 import org.event_handler.damage_event.DamageEventInitiator;
 import org.event_handler.damage_event.DamageEventResponder;
+import org.event_handler.game_utility_event.GameUtilityEventHandler;
 import org.event_handler.game_utility_event.GameUtilityEventInitiator;
 import org.event_handler.game_utility_event.GameUtilityEventResponder;
 import org.player_classes.Magic;
@@ -31,7 +32,9 @@ public class Main {
 
         gameUtilityEventInitiator.addListeners(gameUtilityEventResponder);
 
-        gameUtilityEventInitiator.gameStart();
+        GameUtilityEventHandler gameUtilityEventHandler = new GameUtilityEventHandler();
+
+        gameUtilityEventInitiator.runMainGameplayLoop(gameUtilityEventHandler);
 
 
     }

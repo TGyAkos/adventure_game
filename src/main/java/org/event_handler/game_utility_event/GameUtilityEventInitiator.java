@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameUtilityEventInitiator {
-    // Useless code ↓
     private final List<GameUtilityEventListener> listeners = new ArrayList<>();
 
     public void addListeners(GameUtilityEventListener toAdd) {
         listeners.add(toAdd);
     }
 
-    public void gameStart() {
+    public void runMainGameplayLoop(GameUtilityEventHandler gameUtilityEventHandler) {
         for (GameUtilityEventListener gameUtilityEventListener : listeners) {
-            gameUtilityEventListener.gameStart();
+            gameUtilityEventListener.runMainGameplayLoop(gameUtilityEventHandler);
         }
     }
-
 
 
 }
