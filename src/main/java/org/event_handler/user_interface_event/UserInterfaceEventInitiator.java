@@ -30,4 +30,22 @@ public class UserInterfaceEventInitiator {
         }
     }
 
+    public void getOptions(UserInterfaceDisplay userInterfaceDisplay, UserInterfaceEventHandler userInterfaceEventHandler, String userInput) {
+        for (UserInterfaceEventListener userInterfaceEventListener : listeners) {
+            userInterfaceEventListener.getOptions(userInterfaceDisplay, userInterfaceEventHandler, userInput);
+        }
+    }
+
+    public void getOptionsWhenGameIsRunning(UserInterfaceDisplay userInterfaceDisplay, UserInterfaceEventHandler userInterfaceEventHandler, String userInput) {
+        for (UserInterfaceEventListener userInterfaceEventListener : listeners) {
+            userInterfaceEventListener.getOptionsWhenGameIsRunning(userInterfaceDisplay, userInterfaceEventHandler, userInput);
+        }
+    }
+
+    public void getChosenPlayerClass(UserInterfaceDisplay userInterfaceDisplay, String userInput) {
+        for (UserInterfaceEventListener userInterfaceEventListener : listeners) {
+            userInterfaceEventListener.getChosenPlayerClass(userInterfaceDisplay, userInput);
+        }
+    }
+
 }

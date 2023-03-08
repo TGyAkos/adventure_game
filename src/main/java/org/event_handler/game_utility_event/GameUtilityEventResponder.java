@@ -8,8 +8,20 @@ public class GameUtilityEventResponder implements GameUtilityEventListener {
         UserInterfaceEventHandler userInterfaceEventHandler = gameUtilityEventHandler.getUserInterfaceEventHandler();
 
         // Figure out how to do main gameplay loop, how to restart the main gameplay loop and spawn new enemy after defeating one
-        userInterfaceEventHandler.startCharacterSelection();
+        userInterfaceEventHandler.startUserInterfaceEventHandler();
+
+        userInterfaceEventHandler.startActionSelection();
+
         userInterfaceEventHandler.SpawnEnemy();
-        userInterfaceEventHandler.startMainGameplayLoop();
+
+        while (true) {
+            userInterfaceEventHandler.startMainGameplayLoop();
+            userInterfaceEventHandler.SpawnEnemy();
+
+            if (userInterfaceEventHandler.getUserInterfaceDisplay().getCurrentPlayerClass().getHealth() <= 0.0) {
+                userInterfaceEventHandler.gameEnd();
+                break;
+            }
+        }
     }
 }

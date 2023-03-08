@@ -7,9 +7,31 @@ import org.event_handler.game_utility_event.GameUtilityEventInitiator;
 import org.event_handler.game_utility_event.GameUtilityEventResponder;
 import org.player_classes.Magic;
 
+import java.io.*;
+
 public class Main {
     public static void main(String[] args) {
         // Complete mess used for testing
+
+        try (PrintWriter writer = new PrintWriter("./src/main/resources/foo.txt")) {
+            writer.write("asddasdddddddddddddddddddddddddddddddd");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream("foo.txt");
+            DataInputStream dataInputStream = new DataInputStream(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Hello world!");
 
         DamageEventInitiator damageEventInitiator = new DamageEventInitiator();

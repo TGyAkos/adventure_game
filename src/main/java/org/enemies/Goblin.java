@@ -28,6 +28,7 @@ public class Goblin {
         resistance = ThreadLocalRandom.current().nextDouble(
                 playerClass.getResistance() - (playerClass.getResistance() * 0.15),
                 playerClass.getResistance() + (playerClass.getResistance() * 0.16));
+        xpGivenToPlayer = playerClass.getLevel() * 2;
     }
 
     public double getHealth() {
@@ -40,6 +41,10 @@ public class Goblin {
 
     public double getResistance() {
         return resistance;
+    }
+
+    public double getXpGivenToPlayer() {
+        return this.xpGivenToPlayer;
     }
 
     public void setHealth(double health) {

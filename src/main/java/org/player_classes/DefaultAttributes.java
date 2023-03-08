@@ -1,6 +1,7 @@
 package org.player_classes;
 
 public abstract class DefaultAttributes {
+    private int level = 1;
     private int numberOfEnemyKilled = 0;
     private double health = 100;
     private double damage = 25;
@@ -9,6 +10,14 @@ public abstract class DefaultAttributes {
     private double weakPotion = 2;
     private double commonPotion = 1;
     private double strongPotion = 0;
+
+    public void addToNumberOfEnemyKilled(int numberOfEnemyKilled) {
+        this.numberOfEnemyKilled += numberOfEnemyKilled;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 
     public int getNumberOfEnemyKilled() {
         return numberOfEnemyKilled;
@@ -40,6 +49,10 @@ public abstract class DefaultAttributes {
 
     public double getStrongPotion() {
         return strongPotion;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public void setNumberOfEnemyKilled(int numberOfEnemyKilled) {
