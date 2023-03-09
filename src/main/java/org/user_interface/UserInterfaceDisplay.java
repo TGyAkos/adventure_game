@@ -88,7 +88,7 @@ public class UserInterfaceDisplay {
         System.out.printf("The current High Score: %s%n", highScore);
     }
 
-    // Currently show highScores.txt as a valid input, create a subfolder for all save files
+    // Currently show highScores.txt as a valid input, create a subfolder for all save files FIXED, TEST NEEDED
     public void printSavedPlayerClasses() {
         for (int i = 0; i <= filesList.length ; i++) {
             System.out.printf("%d.- %s%n", i, filesList[i].getName());
@@ -100,6 +100,10 @@ public class UserInterfaceDisplay {
 
     public void getChosenPlayerClass() {
         userInterfaceEventInitiator.getChosenPlayerClass(this, currentUserInput);
+    }
+
+    public void getPotionOption() {
+        userInterfaceEventInitiator.getPotionOption(this, currentUserInput);
     }
 
     public void printSavePrompt() {

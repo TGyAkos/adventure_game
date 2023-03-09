@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.event_handler.load_event.LoadEventListener;
 import org.event_handler.load_event.LoadListenerData;
-import org.player_classes.DefaultAttributes;
+import org.player_classes.Loaded;
 import org.user_interface.UserInterfaceDisplay;
 
 import java.io.*;
@@ -12,7 +12,7 @@ import java.io.*;
 public class LoadPlayerClass implements LoadEventListener {
     @Override
     public void listPlayerClasses(LoadListenerData loadListenerData) {
-        File directoryPath = new File("./src/main/resources/");
+        File directoryPath = new File("./src/main/resources/save_games/");
         File[] filesList = directoryPath.listFiles();
 
         loadListenerData.userInterfaceDisplay().setFilesList(filesList);
@@ -42,10 +42,11 @@ public class LoadPlayerClass implements LoadEventListener {
             e.printStackTrace();
         }
 
-        // Currently doesn't load cus DefaultAttributes does not have a constructor, somehow save the received as array, then manually assign it with getters/setters
-        DefaultAttributes playerClass;
+        // Currently doesn't load cus DefaultAttributes does not have a constructor, somehow save the received as array, then manually assign it with getters/setters FIXED, TEST NEEDED
+        Loaded playerClass;
         try {
-            playerClass = objectMapper.readValue(jsonString, DefaultAttributes.class);
+            playerClass  = objectMapper.readValue(jsonString, Loaded.class);
+
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

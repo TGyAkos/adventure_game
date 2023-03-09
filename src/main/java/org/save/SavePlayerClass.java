@@ -12,7 +12,7 @@ public class SavePlayerClass implements SaveEventListener {
     @Override
     public void saveCurrentPlayerClass(SaveListenerData saveListenerData) {
         ObjectMapper objectMapper = new ObjectMapper();
-        String userGivenFileName = String.format("./src/main/resources/%s.json", saveListenerData.userInput());
+        String userGivenFileName = String.format("./src/main/resources/save_games/%s.json", saveListenerData.userInput());
         String jsonString = "";
 
         try {

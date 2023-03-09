@@ -3,6 +3,8 @@ package org.user_interface;
 import org.event_handler.load_event.LoadListenerData;
 import org.event_handler.user_interface_event.UserInterfaceEventHandler;
 import org.event_handler.user_interface_event.UserInterfaceEventListener;
+import org.jetbrains.annotations.NotNull;
+import org.player_classes.DefaultAttributes;
 import org.player_classes.Magic;
 import org.player_classes.Melee;
 import org.player_classes.Range;
@@ -33,10 +35,13 @@ public class UserInputHandling implements UserInterfaceEventListener {
     }
 
     @Override
-    public void getPlayerCombatAction(UserInterfaceDisplay userInterfaceDisplay, String userInput) {
+    public void getPlayerCombatAction(@NotNull final UserInterfaceDisplay userInterfaceDisplay, String userInput) {
         switch (userInput) {
             case "1" ->  userInterfaceDisplay.printFightResult();
-            case "2" ->  userInterfaceDisplay.printPotionOption();
+            case "2" ->  {
+                userInterfaceDisplay.printPotionOption();
+                userInterfaceDisplay.getPotionOption();
+            }
             case "3" ->  userInterfaceDisplay.printMyStats();
             case "4" ->  userInterfaceDisplay.printEnemyStats();
             case "5" -> {
@@ -81,5 +86,17 @@ public class UserInputHandling implements UserInterfaceEventListener {
         );
 
         userInterfaceDisplay.getUserInterfaceEventHandler().getLoadEventInitiator().loadChosenPlayerClass(loadListenerData);
+    }
+
+    // ITS AWFUL, extend DefaultAttributes with weak, common, strong potion health values, also CHECK IF A PLAYER HAS MAX HP
+    @Override
+    public void getPotionOption(UserInterfaceDisplay userInterfaceDisplay, String userInput) {
+        DefaultAttributes playerClass = userInterfaceDisplay.getCurrentPlayerClass();
+        switch (userInput) {
+            case "1" -> playerClass.setHealth(playerClass.getHealth() + 25);
+            case "2" -> playerClass.setHealth(playerClass.getHealth() + 50);
+            case "3" -> playerClass.setHealth(playerClass.getHealth() + 100);
+        }
+
     }
 }

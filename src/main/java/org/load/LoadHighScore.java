@@ -9,7 +9,7 @@ public class LoadHighScore implements LoadEventListener {
     @Override
     public void loadHighScore(LoadListenerData loadListenerData) {
         try {
-            FileInputStream fileInputStream = new FileInputStream("highScore.txt");
+            FileInputStream fileInputStream = new FileInputStream("./src/main/resources/highScore.txt");
             DataInputStream dataInputStream = new DataInputStream(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
 

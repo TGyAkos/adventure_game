@@ -12,11 +12,9 @@ public class GameUtilityEventResponder implements GameUtilityEventListener {
 
         userInterfaceEventHandler.startActionSelection();
 
-        userInterfaceEventHandler.SpawnEnemy();
-
         while (true) {
-            userInterfaceEventHandler.startMainGameplayLoop();
             userInterfaceEventHandler.SpawnEnemy();
+            userInterfaceEventHandler.startMainGameplayLoop();
 
             if (userInterfaceEventHandler.getUserInterfaceDisplay().getCurrentPlayerClass().getHealth() <= 0.0) {
                 userInterfaceEventHandler.gameEnd();

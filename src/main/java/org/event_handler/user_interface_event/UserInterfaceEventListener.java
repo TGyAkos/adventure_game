@@ -9,4 +9,7 @@ public interface UserInterfaceEventListener {
     void getOptions(UserInterfaceDisplay userInterfaceDisplay, UserInterfaceEventHandler userInterfaceEventHandler, String userInput);
     void getOptionsWhenGameIsRunning(UserInterfaceDisplay userInterfaceDisplay, UserInterfaceEventHandler userInterfaceEventHandler, String userInput);
     void getChosenPlayerClass(UserInterfaceDisplay userInterfaceDisplay, String userInput);
+
+    // ITS AWFUL, extend DefaultAttributes with weak, common, strong potion health values, also CHECK IF A PLAYER HAS MAX HP
+    void getPotionOption(UserInterfaceDisplay userInterfaceDisplay, String userInput);
 }

@@ -48,4 +48,10 @@ public class UserInterfaceEventInitiator {
         }
     }
 
+    public void getPotionOption(UserInterfaceDisplay userInterfaceDisplay, String userInput) {
+        for (UserInterfaceEventListener userInterfaceEventListener : listeners) {
+            userInterfaceEventListener.getPotionOption(userInterfaceDisplay, userInput);
+        }
+    }
+
 }

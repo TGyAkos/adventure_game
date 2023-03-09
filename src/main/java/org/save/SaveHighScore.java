@@ -13,7 +13,7 @@ public class SaveHighScore implements SaveEventListener {
         String fileName = "./src/main/resources/highScore.txt";
 
         try (PrintWriter writer = new PrintWriter(fileName)) {
-            writer.write(saveListenerData.playerClass().getNumberOfEnemyKilled());
+            writer.write(Integer.toString(saveListenerData.playerClass().getNumberOfEnemyKilled()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
